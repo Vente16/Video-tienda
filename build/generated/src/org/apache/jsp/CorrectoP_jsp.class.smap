@@ -1,0 +1,14 @@
+SMAP
+CorrectoP_jsp.java
+JSP
+*S JSP
+*F
++ 0 CorrectoP.jsp
+CorrectoP.jsp
++ 1 HeaderP.jspf
+HeaderP.jspf
+*L
+5,15:49
+1#1,23:64
+19#0,16:86
+*E

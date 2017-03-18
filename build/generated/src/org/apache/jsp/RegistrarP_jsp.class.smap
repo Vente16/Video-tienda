@@ -1,0 +1,18 @@
+SMAP
+RegistrarP_jsp.java
+JSP
+*S JSP
+*F
++ 0 RegistrarP.jsp
+RegistrarP.jsp
++ 1 HeaderP.jspf
+HeaderP.jspf
+*L
+5,26:49
+1#1,25:75
+30#0,3:99
+34,18:104
+51,70:122
+122,3:194
+124,8:197
+*E

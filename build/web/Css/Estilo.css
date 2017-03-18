@@ -1,0 +1,42 @@
+
+#detallar, #actualizar, #eliminar{
+
+    line-height: 40px;  
+    padding-left: 50px;
+    padding-bottom: 15px;
+    background-image: url(../img/icons.png);
+    text-align: center;
+
+}
+
+#detallar{
+
+    background-position: 435px 110px;
+    padding-top: 0px;
+    align-content: center;
+}
+
+
+#actualizar{
+
+    background-position: 600px 0px;
+    padding-right: 8px;
+}
+
+#eliminar{
+
+    background-position: 50px  275px;
+}
+
+
+th  {
+
+    text-align: center;
+}
+
+
+
+
+
+
+
