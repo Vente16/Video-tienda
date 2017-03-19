@@ -33,7 +33,7 @@
     
         <div class="container">
   <h2>Películas registradas</h2>
-  <h4>A continuación esta la lista de películas registradas:</h4> <br><br>          
+  <h4>A continuación se muestra la lista de películas registradas:</h4> <br><br>          
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -71,11 +71,18 @@
         <td><%= rs.getString("Nombre")%></td>
         <td><%= rs.getString("Genero")%></td>
         <td><%= rs.getString("Estado")%></td>
-        <td ><span id="detallar"> </span></td>
-        <td><span  id="actualizar"> </span></td>
-        <td><span  id="eliminar"> </span></td>
+        <td><button type="button" class=" glyphicon glyphicon-search btn btn-primary"></button></td>
+        <td><button class="glyphicon glyphicon-check btn btn-success"></button></td>
+        <td><button class="glyphicon glyphicon-trash btn btn-danger"> </button></td>
       </tr>
     </tbody>
+
+    
+    
+    
+    
+    
+    
     
     <% 
          } //Cierre del while
@@ -85,8 +92,8 @@
       %>
   </table>
 </div>
+       
 
-        
        
         
     </body>
