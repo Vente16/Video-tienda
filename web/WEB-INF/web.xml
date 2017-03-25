@@ -32,6 +32,22 @@
         <servlet-name>Prueba</servlet-name>
         <servlet-class>Controlador.Prueba</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MostrarDatos</servlet-name>
+        <servlet-class>Controlador.MostrarDatos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MuestraDatos</servlet-name>
+        <servlet-class>Controlador.MuestraDatos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActualizarPeliculas</servlet-name>
+        <servlet-class>Controlador.ActualizarPeliculas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Probar</servlet-name>
+        <servlet-class>Controlador.Probar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>servet</servlet-name>
         <url-pattern>/servet</url-pattern>
@@ -63,6 +79,22 @@
     <servlet-mapping>
         <servlet-name>Prueba</servlet-name>
         <url-pattern>/Prueba</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MostrarDatos</servlet-name>
+        <url-pattern>/MostrarDatos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MuestraDatos</servlet-name>
+        <url-pattern>/MuestraDatos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActualizarPeliculas</servlet-name>
+        <url-pattern>/ActualizarPeliculas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Probar</servlet-name>
+        <url-pattern>/Probar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

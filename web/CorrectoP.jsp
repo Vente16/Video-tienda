@@ -22,7 +22,7 @@
         <div class="container">
             <div class="jumbotron">
                 <div class="alert alert-success">
-                    <h1>   <strong>Éxito!</strong> </h1> <p>Registrado correctamente.</p>
+                    <h1>   <strong>Éxito!</strong> </h1> <p>la operación se ha realizadocorrectamente.</p>
                 </div>   
             </div>
         </div> 

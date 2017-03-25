@@ -9,19 +9,16 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author User
  */
-public class Login extends HttpServlet {
+public class ActualizarPeliculas extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,75 +31,8 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-           
-            try{
-            
-            String user = request.getParameter("Usuario");
-            String contraseña = request.getParameter("Contra");
-           
-            
-            Conexion c = new Conexion();
-            Connection co = c.Conectar();
-            
-            PreparedStatement st = co.prepareStatement("SELECT *FROM usuarios WHERE Usuario=? AND Contraseña=?");
-            st.setString(1, user);
-            st.setString(2, contraseña);
-            ResultSet rs = st.executeQuery();
-            
-            
-            
-                if(rs.absolute(1)){
-                
-             //    String rol = rs.getString("Rol");
-                 
-                 HttpSession Sesion = request.getSession();
-                 Sesion.setAttribute("Usuario", user);
-                 Sesion.setAttribute("Constraseña", contraseña);
-                 request.setAttribute("rol", rs.getString("Rol"));
-                 
-                 response.sendRedirect("IndexP.jsp");
-                 
-                }else{
-                
-                  
-                response.sendRedirect("Error.jsp");
-                
-                }
-                
-            
-          
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            }catch(Exception e){
-                
-                System.out.println(""+e);
-            
-            }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        } finally {
-            out.close();
-        }
+       
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -117,7 +47,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       
     }
 
     /**
@@ -131,7 +61,55 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+           processRequest(request, response);
+        
+         try {
+            
+               Conexion c = new Conexion();
+              Connection co = c.Conectar();
+           
+                String id = request.getParameter("Id");
+                String nombre = request.getParameter("Nombre");
+                String genero = request.getParameter("Genero");
+                String duracion = request.getParameter("Duracion");
+                String clasificacion = request.getParameter("Clasificacion");
+                String disponibilidad = request.getParameter("Disponibilidad");
+                String estado = request.getParameter("Estado");
+                String ejemplares = request.getParameter("Ejemplares");
+                String empleado = request.getParameter("Empleado");
+  
+             PreparedStatement ps = co.prepareStatement("UPDATE peliculas SET Nombre=?,Genero=?,Duracion=?,Clasificacion=?,Disponibilidad=?,Estado=?,Ejemplares=?,Empleado_Registro=? WHERE Id=?");
+                
+             ps.setString(1, nombre);
+             ps.setString(2, genero);
+             ps.setString(3, duracion);
+             ps.setString(4, clasificacion);  
+             ps.setString(5, disponibilidad);
+             ps.setString(6, estado);
+             ps.setString(7, ejemplares);
+             ps.setString(8, empleado);
+             ps.setString(9, id);
+             ps.executeUpdate();
+             
+             response.sendRedirect("CorrectoP.jsp");
+             
+             ps.close();
+             co.close();
+             
+             
+        } catch (Exception e) {
+        
+             response.sendRedirect("Error.jsp");
+              System.out.println(e);
+            
+        }
+     
+        
+        
+         
+        
+        
+        
     }
 
     /**

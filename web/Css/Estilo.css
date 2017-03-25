@@ -29,13 +29,18 @@
 }
 
 
-th   {
+th  {
 
     text-align: center;
 }
 
-
-
+  .form-horizontal{
+                
+    width: 300px;
+    text-content: center;
+                
+    }
+            
 
 
 

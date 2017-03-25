@@ -15,7 +15,7 @@
         <ul class="nav navbar-nav">
 
 
-            <li class="active"><a href="IndexP.jsp">Home</a></li>
+            <li class="active"><a href="IndexP.jsp">Inicio</a></li>
 
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Películas <span class="caret"></span></a>
                 <ul class="dropdown-menu">

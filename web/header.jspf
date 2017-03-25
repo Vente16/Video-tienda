@@ -7,14 +7,8 @@
       <a class="navbar-brand" href="#">Vídeo tienda</a>
     </div>
    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-        </ul>
-      </li>
+      <li class="active"><a href="index.jsp">Inicio</a></li>
+      
       <li><a href="#"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -31,7 +25,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title" style="text-align: center">Login</h4>
         </div>
           <div class="modal-body">
 
@@ -53,23 +47,4 @@
       </div>
       
     </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
