@@ -16,12 +16,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
         <link rel="stylesheet" href="Css/Estilo.css">
         <link rel="stylesheet" href="Css/alertify.core.css">
         <link rel="stylesheet" href="Css/alertify.default.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="Js/Funciones.js"></script>
+        <script  src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
         
         <title>Lista de películas</title>
 
@@ -34,13 +36,11 @@
      
     <%@include file="HeaderP.jspf" %>
         
-  
-  
-    
+ 
         <div class="container">
   <h2>Películas registradas</h2>
   <h4>A continuación se muestra la lista de películas registradas:</h4> <br><br>          
-  <table class="table table-bordered">
+  <table class="table table-hover">
     <thead>
       <tr>
        
@@ -78,20 +78,22 @@
     <tbody>
       <tr>
        
-          <td id="Nombre"><%= rs.getString("Nombre")%></td>
+          
+        <td id="Nombre"><%= rs.getString("Nombre")%></td>
         <td  id="Genero"><%= rs.getString("Genero")%></td>
         <td  id="Estado"><%= rs.getString("Estado")%></td>
-        <td><button  id="modal" type="button" class=" glyphicon glyphicon-search btn btn-primary" data-toggle="modal" data-target="#myModal" ></button></td>
-        <td><a href="Actualizar.jsp?id=<%=rs.getString("Id")%>" class="glyphicon glyphicon-edit btn btn-success"></a></td>
-        <td><button class="glyphicon glyphicon-trash btn btn-danger"  data-toggle="modal" data-target="#Confirma"> </button></td>
+        <td><a   class=" glyphicon glyphicon-search btn btn-primary" data-toggle="modal" data-target="#Detalle" href="Detalle.jsp" ></a></td>
+        <td><a  href="Actualizar.jsp?id=<%=rs.getString("Id")%>" class="glyphicon glyphicon-edit btn btn-success" id="Actualiza"></a></td>
+        <td><button class="btn btn-danger glyphicon glyphicon-trash Eliminar" onclick="Eliminar()" value="<%=rs.getString("Id")%>"></button></td>
+        
       </tr>
     </tbody>
 
-      <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+ <!--     <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog"> -->
     
       <!-- Modal content-->
-      <div class="modal-content">
+     <!-- <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Información detallada</h4>
@@ -103,10 +105,10 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
-      </div>
+      </div>  
       
     </div>
-  </div>
+  </div> -->
     
       <div class="modal fade" id="Confirma" role="dialog">
     <div class="modal-dialog">
@@ -120,13 +122,16 @@
         <div class="modal-body">
           <p id="informacion"></p>
         </div>
-          <form action="EliminarPelicula">
+       
         <div class="modal-footer">
          
-          <button type="submit" class="btn btn-success">Aceptar</button>
+            <form action="EliminarPeliculas">
+                <input name="Id" value="<%=id%> ">
+               <button type="submit" class="btn btn-success">Aceptar</buttton>
+            </form>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
         </div>
-      </form>
+      
       </div>
       
     </div>
@@ -142,7 +147,7 @@
   </table>
 </div>
        
-
+      <%@include file="Detalle.jsp" %>
         
     </body>
 </html>

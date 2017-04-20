@@ -48,6 +48,18 @@
         <servlet-name>Probar</servlet-name>
         <servlet-class>Controlador.Probar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EliminarPeliculas</servlet-name>
+        <servlet-class>Controlador.EliminarPeliculas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Ensayo</servlet-name>
+        <servlet-class>Controlador.Ensayo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OlvidoContrasena</servlet-name>
+        <servlet-class>Controlador.OlvidoContrasena</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>servet</servlet-name>
         <url-pattern>/servet</url-pattern>
@@ -95,6 +107,18 @@
     <servlet-mapping>
         <servlet-name>Probar</servlet-name>
         <url-pattern>/Probar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarPeliculas</servlet-name>
+        <url-pattern>/EliminarPeliculas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Ensayo</servlet-name>
+        <url-pattern>/Ensayo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OlvidoContrasena</servlet-name>
+        <url-pattern>/OlvidoContrasena</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

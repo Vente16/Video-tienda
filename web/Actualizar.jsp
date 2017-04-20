@@ -33,7 +33,9 @@
     </head>
     <body>
         
-     <%   HttpSession sesion = (HttpSession) request.getSession(true);
+     <%  
+
+         HttpSession sesion = (HttpSession) request.getSession(true);
          
          String user = (String) sesion.getAttribute("Usuario");
          String contra = (String) sesion.getAttribute("Constraseña");
@@ -47,9 +49,7 @@
      
         %>
              
-             
-                     
-             
+              
         <%@include file="HeaderP.jspf" %>
                                             
            <div class="container">
@@ -58,17 +58,16 @@
                <%  
                    
                    
-                 String Id = request.getParameter("id");
+               String Id = (String) request.getParameter("id");
                
-               
-               Conexion c = new Conexion();
+              Conexion c = new Conexion();
                Connection co = c.Conectar();
            
              PreparedStatement st = co.prepareStatement("SELECT *FROM peliculas WHERE Id="+Id);
             
              ResultSet rs = st.executeQuery();
            
-                 while(rs.next()){
+                 while(rs.next()){  
                      
                %>
                
@@ -84,10 +83,9 @@
      
                
                 <div class="form-group">
-                    <label class="control-label col-sm-2">Id:</label><input type="text" name="Id" value="<%=Id%>">
-                    <br><br>
+                    <input type="text" name="Id" value="<%=Id%>" class="hidden">
                     
-                   
+                    
                     <label class="control-label col-sm-2">Nombre:</label>
                         
                     <input type="text" class="form-control" name="Nombre" value="<%=rs.getString("Nombre")%>">
@@ -146,12 +144,13 @@
         </form>
         </div>
                       
-                    <% } //Cierro el While%>
+                    
         
-        <%   
+        <%
+                  } // Cierro el while
+     
                 } // Cierro el else
-        
-        %>
+       %>
      
       
     </body>

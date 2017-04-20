@@ -34,75 +34,7 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-           
-            try{
-            
-            String user = request.getParameter("Usuario");
-            String contraseña = request.getParameter("Contra");
-           
-            
-            Conexion c = new Conexion();
-            Connection co = c.Conectar();
-            
-            PreparedStatement st = co.prepareStatement("SELECT *FROM usuarios WHERE Usuario=? AND Contraseña=?");
-            st.setString(1, user);
-            st.setString(2, contraseña);
-            ResultSet rs = st.executeQuery();
-            
-            
-            
-                if(rs.absolute(1)){
-                
-             //    String rol = rs.getString("Rol");
-                 
-                 HttpSession Sesion = request.getSession();
-                 Sesion.setAttribute("Usuario", user);
-                 Sesion.setAttribute("Constraseña", contraseña);
-                 request.setAttribute("rol", rs.getString("Rol"));
-                 
-                 response.sendRedirect("IndexP.jsp");
-                 
-                }else{
-                
-                  
-                response.sendRedirect("Error.jsp");
-                
-                }
-                
-            
-          
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            }catch(Exception e){
-                
-                System.out.println(""+e);
-            
-            }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        } finally {
-            out.close();
-        }
+      
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -132,6 +64,43 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        try {
+
+            String user = request.getParameter("Usuario");
+            String contraseña = request.getParameter("Contra");
+            String rol = "admin";
+            
+            Conexion c = new Conexion();
+            Connection co = c.Conectar();
+
+            PreparedStatement st = co.prepareStatement("SELECT *FROM usuarios WHERE Usuario=? AND Contraseña=?");
+            st.setString(1, user);
+            st.setString(2, contraseña);
+            ResultSet rs = st.executeQuery();
+           
+            if (rs.absolute(1)) {
+              
+               
+                HttpSession Sesion = request.getSession();
+                String mierda = "Mierda";
+                Sesion.setAttribute("Usuario", user);
+                Sesion.setAttribute("Contraseña", contraseña);
+                Sesion.setAttribute("Rol", rs.getString("Rol"));
+                response.sendRedirect("IndexP.jsp");
+                st.close();
+                co.close();
+            } else {
+                
+                response.sendRedirect("Error.jsp");
+            }
+
+        } catch (Exception e) {
+                System.out.println("" + e);
+        }
+
+
+        
+         
     }
 
     /**

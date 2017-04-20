@@ -21,9 +21,9 @@
                 <ul class="dropdown-menu">
                     <li><a href="RegistrarP.jsp">Registrar</a></li>
                     <li>
-                        <form action="ListarPeliculas">
-                            <button type="submit" class="btn btn-success">Listar</button>     
-                        </form>
+                   
+                      <a href="ListarPeliculas">Listar</a>    
+            
 
                     </li>
                 </ul>

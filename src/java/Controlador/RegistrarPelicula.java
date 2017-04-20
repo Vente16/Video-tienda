@@ -32,63 +32,7 @@ public class RegistrarPelicula extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-          
-            try{
-                
-                String nombre = request.getParameter("Nombre");
-                String genero = request.getParameter("Genero");
-                String duracion = request.getParameter("Duracion");
-                String clasificacion = request.getParameter("Clasificacion");
-                String disponibilidad = request.getParameter("Disponibilidad");
-                String estado = request.getParameter("Estado");
-                String ejemplares = request.getParameter("Ejemplares");
-                String empleado = request.getParameter("Empleado");
-            
-             Conexion c = new Conexion();
-             Connection co = c.Conectar();
-             
-             PreparedStatement st = co.prepareStatement("INSERT INTO peliculas (Nombre,Genero,Duracion,Clasificacion,Disponibilidad,Estado,Ejemplares,Empleado_Registro) VALUES (?,?,?,?,?,?,?,?)");
-             st.setString(1, nombre);
-             st.setString(2, genero);
-             st.setString(3, duracion);
-             st.setString(4, clasificacion);  
-             st.setString(5, disponibilidad);
-             st.setString(6, estado);
-             st.setString(7, ejemplares);
-             st.setString(8, empleado);
-             st.executeUpdate();
-             
-             RequestDispatcher rd = request.getRequestDispatcher("CorrectoP.jsp");
-             rd.forward(request, response);
-             
-             st.close();
-             co.close();
-             
-             
-            
-            }catch(Exception e){
-            
-                System.out.println(""+e);
-   
-            }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        } finally {
-            out.close();
-        }
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -103,7 +47,7 @@ public class RegistrarPelicula extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       
     }
 
     /**
@@ -118,6 +62,49 @@ public class RegistrarPelicula extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+         response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        try {
+          
+            try{
+                
+                String nombre = request.getParameter("Nombre");
+                String genero = request.getParameter("Genero");
+                String duracion = request.getParameter("Duracion");
+                String clasificacion = request.getParameter("Clasificacion");
+                String disponibilidad = request.getParameter("Disponibilidad");
+                String estado = request.getParameter("Estado");
+                String ejemplares = request.getParameter("Ejemplares");
+                String empleado = request.getParameter("Empleado");
+                String habilita = "1";
+             Conexion c = new Conexion();
+             Connection co = c.Conectar();
+             
+             PreparedStatement st = co.prepareStatement("INSERT INTO peliculas (Nombre,Genero,Duracion,Clasificacion,Disponibilidad,Estado,Ejemplares,Empleado_Registro,Habilitar) VALUES (?,?,?,?,?,?,?,?,?)");
+             st.setString(1, nombre);
+             st.setString(2, genero);
+             st.setString(3, duracion);
+             st.setString(4, clasificacion);  
+             st.setString(5, disponibilidad);
+             st.setString(6, estado);
+             st.setString(7, ejemplares);
+             st.setString(8, empleado);
+             st.setString(9, habilita);
+             st.executeUpdate();
+             
+             response.sendRedirect("CorrectoP.jsp");
+             
+             st.close();
+             co.close();
+            
+            }catch(Exception e){
+                System.out.println(""+e);
+            }
+            
+            
+        } finally {
+            out.close();
+        }
     }
 
     /**

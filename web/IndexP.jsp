@@ -13,17 +13,23 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+       <script src="Js/Funciones.js"></script>
         <title>Inicio</title>
     </head>
     <body>
         <%
         
       HttpSession sesion = (HttpSession)request.getSession(true);
-
+  
+      
+     //  String rol = (String)  sesion.getAttribute("Rol");
+        
      String Usuario = (String) sesion.getAttribute("Usuario");
-
-   //  String Contra = (String) sesion.getAttribute("Contraseña");
-
+  
+      String Contraseña = (String) sesion.getAttribute("Contraseña");
+   
+     
+  
       if(sesion.getAttribute("Usuario")==null){
 
           response.sendRedirect("Error.jsp");
@@ -36,9 +42,9 @@
         %>
         <%@include file="HeaderP.jspf" %>
       
-        <h1>Bienvenido(a): <%=Usuario%></h1>
-        
-        
+        <h1 id="bienvenida">Bienvenido(a): <%=Usuario%></h1><br>
+    
+    
         
         <% 
 

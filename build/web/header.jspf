@@ -30,7 +30,7 @@
           <div class="modal-body">
 
               <div class="container">
-                  <form action="Login">
+                  <form action="Login" method="post">
 
                       <label>Usuario</label><br>
                       <input type="text" name="Usuario"><br>

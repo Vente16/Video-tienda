@@ -43,8 +43,9 @@ public class ListarPeliculas extends HttpServlet {
                 
            Conexion c = new Conexion();
            Connection co = c.Conectar();
-           
-           PreparedStatement st = co.prepareStatement("SELECT *FROM peliculas");
+           String numero = "1";
+           PreparedStatement st = co.prepareStatement("SELECT *FROM peliculas WHERE Habilitar=?");
+           st.setString(1, numero);
            ResultSet rs = st.executeQuery();
            
              request.setAttribute("lista", rs);

@@ -56,7 +56,7 @@
            
             <div class="jumbotron">
 
-                <form class="form-horizontal" action="RegistrarPelicula">
+                <form class="form-horizontal" action="RegistrarPelicula" method="post">
 
                 <div class="form-group">
                     <label class="control-label col-sm-2">Nombre:</label>
