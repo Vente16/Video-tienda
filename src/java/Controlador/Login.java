@@ -82,7 +82,6 @@ public class Login extends HttpServlet {
               
                
                 HttpSession Sesion = request.getSession();
-                String mierda = "Mierda";
                 Sesion.setAttribute("Usuario", user);
                 Sesion.setAttribute("Contraseña", contraseña);
                 Sesion.setAttribute("Rol", rs.getString("Rol"));

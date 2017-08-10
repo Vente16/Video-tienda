@@ -50,7 +50,7 @@ public class Controlador {
             mensaje.setContent(m);
             
             Transport t = s.getTransport("smtp");
-            t.connect(cor.getCorreo(),cor.getContraseña());
+            t.connect();
             t.sendMessage(mensaje, mensaje.getAllRecipients());
             t.close();
             
